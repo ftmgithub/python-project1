@@ -1,0 +1,31 @@
+
+
+In [1]: import pandas as pd
+
+In [2]: df = pd.read_csv('C:/Users/fatemeh/Desktop/py.project/log2.txt', names= ['Data'])
+
+In [3]: pd.set_option('display.max_colwidth', None)
+
+In [4]: df
+Out[4]:
+                                                                                  Data
+0       Interface                   PHY   Protocol  InUti OutUti   inErrors  outErrors
+1  0    Aux0/0/1                    *down down         0%     0%          0          0
+2  1    Eth-Trunk11                 down  down         0%     0%          0          0
+3  2    Eth-Trunk12                 up    up        4.80% 33.55%          0          0
+4  3      GigabitEthernet1/0/1(10G) up    up        2.26% 33.43%          0          0
+5  4      GigabitEthernet1/0/3(10G) up    up        7.34% 33.66%          0          0
+
+
+
+In [5]: df1 = df[df['Data'].str.contains(" up ")]
+   ...: df1
+Out[5]:
+                                                                                  Data
+3  2    Eth-Trunk12                 up    up        4.80% 33.55%          0          0
+4  3      GigabitEthernet1/0/1(10G) up    up        2.26% 33.43%          0          0
+5  4      GigabitEthernet1/0/3(10G) up    up        7.34% 33.66%          0          0
+
+In [10]: df1.to_csv(r'C:/Users/fatemeh/Desktop/py.project/up-links.csv',index = None, header=True)
+
+In [11]: df1
