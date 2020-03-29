@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+          <form action="/tables" method="post" style="display:inline-block">
+           <table width="100%" align="left">
+           <tr>
+              <th width="70%" align="left"></br>
+                 {% for table in tables %}</br></br>
+                    {{ table | safe }}
+                 {% endfor %}
+              </th>
+           </tr>
+           </table>
+        </form>
+    </form>
+  </body>
+</html>
